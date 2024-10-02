@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
@@ -64,13 +65,14 @@ fun Suma(name: String, modifier: Modifier = Modifier) {
     var b by rememberSaveable() { mutableStateOf("") }
     var resultado by rememberSaveable() { mutableStateOf("Resultado") }
     Column(
-        Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        modifier.fillMaxSize(),
+        //horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
     ) {
-        Box(Modifier.height(20.dp))
+       // Box(Modifier.height(20.dp))
+        Text(text = resultado, fontSize = 20.sp)
         LeeDato(numero = a, onTextChange = { a = it })
         LeeDato(numero = b, onTextChange = { b = it })
-        Text(text = resultado, fontSize = 20.sp)
         Sumar(a, b) { resultado = it.toString() }
     }
 }
